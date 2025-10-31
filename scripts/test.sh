@@ -6,4 +6,4 @@ INVOCATION_URL="$BASE_URL/2015-03-31/functions/function/invocations"
 
 DATA="${1:-"{}"}"
 
-curl -s "$INVOCATION_URL" -d "$DATA" | jq '.body |= fromjson'
+curl -s "$INVOCATION_URL" -d "$DATA" | jq 'if .body? then .body |= fromjson else . end'

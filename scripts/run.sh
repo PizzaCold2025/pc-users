@@ -9,7 +9,8 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-IMAGE="pc-users-$1"
+function="$1"
+image="pc-users-$function"
 
-docker build -t "$IMAGE" -f "functions/$1/Dockerfile" .
-docker run -p 9000:8080 -v "$HOME/.aws/credentials:/root/.aws/credentials" "$IMAGE"
+docker build --build-arg FUNCTION="$function" -t "$image" .
+docker run -p 9000:8080 -v "$HOME/.aws/credentials:/root/.aws/credentials" "$image"

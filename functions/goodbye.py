@@ -7,6 +7,6 @@ def handler(event: APIGWPayloadV1RequestDict, context: APIGWPayloadV1RequestCont
         "statusCode": 200,
         "headers": {},
         "multiValueHeaders": {},
-        "body": json.dumps({ "message": "Hello, world!" }),
+        "body": json.dumps({ "message": "Goodbye, world!" }),
         "isBase64Encoded": False,
     }
